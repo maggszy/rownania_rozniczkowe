@@ -113,7 +113,7 @@ function plot_with_skijump2(h,angle,czas,t1,dt,zasieg_opor,hₘ_opor,func_x,func
         label = lbl,
         xlim = (0, zasieg_opor),
         ylim = (0, hₘ_opor),
-        legend = :bottom,
+        legend = :topright,
         linewidth = 2.5,
         linecolor="#6495ED",
         title = "tor ruchu")
@@ -124,7 +124,7 @@ function plot_with_skijump2(h,angle,czas,t1,dt,zasieg_opor,hₘ_opor,func_x,func
         label = lbl2,
         xlim = (0, zasieg_opor),
         ylim = (0, hₘ_opor),
-        legend = :bottom,
+        legend = :topright,
         linewidth = 2.5,
         linecolor="#87CEEB",
         title = "tor ruchu")
