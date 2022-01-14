@@ -1,8 +1,10 @@
 module skocznia
 
+using Plots
+
 #instrukcja importowania ---> wpisz w komórce: include("skocznia.jl")
 
-function draw_trackk(h,angle=30) 
+function draw_trackk(h,czas,t1,dt,angle=30) 
     """
     Funkcja rysująca samą skocznie
     :param h: wysokość skoczni
@@ -26,7 +28,7 @@ function draw_trackk(h,angle=30)
     return track_x,track_y,axis_x,axis_y,length_slope
 end
 
-function plot_with_skijump(h,angle,func_x,func_y,cross,lbl)
+function plot_with_skijump(h,angle,czas,t1,dt,zasieg_opor,hₘ_opor,func_x,func_y,cross,lbl)
     """
     Funkcja plotuje tor ruchu skoczka naraciarskiego na skoczni
     :param h: wysokość skoczni
@@ -36,7 +38,7 @@ function plot_with_skijump(h,angle,func_x,func_y,cross,lbl)
     :pram cross: pkt przecięcia się toru ruchu ze skocznią (dla wsp x)
     :param lbl: tytuł dla etykiety funkcji
     """
-    track_x,track_y,axis_x,axis_y,length_slope=draw_trackk(h,angle)
+    track_x,track_y,axis_x,axis_y,length_slope=draw_trackk(h,czas,t1,dt,angle)
     x,y = func_x,func_y
     
     for i in 1:length(x)
@@ -69,7 +71,7 @@ function plot_with_skijump(h,angle,func_x,func_y,cross,lbl)
         ylim = (axis_y[1],axis_y[2]))
 end
 
-function plot_with_skijump2(h,angle,func_x,func_y,cross1,lbl,func_x2,func_y2,cross2,lbl2) 
+function plot_with_skijump2(h,angle,czas,t1,dt,zasieg_opor,hₘ_opor,func_x,func_y,cross1,lbl,func_x2,func_y2,cross2,lbl2) 
     """
     Funkcja plotuje dwa tory ruchu skoczka naraciarskiego na skoczni
     :param h: wysokość skoczni
@@ -83,7 +85,7 @@ function plot_with_skijump2(h,angle,func_x,func_y,cross1,lbl,func_x2,func_y2,cro
     :pram cross2: pkt przecięcia się drugiego toru ruchu ze skocznią (dla wsp x)
     :param lbl1: tytuł dla etykiety drugiej funkcji
     """
-    track_x,track_y,axis_x,axis_y,length_slope=draw_trackk(h,angle)
+    track_x,track_y,axis_x,axis_y,length_slope=draw_trackk(h,czas,t1,dt,angle)
     x,y = func_x,func_y
     x2,y2= func_x2,func_y2
     
